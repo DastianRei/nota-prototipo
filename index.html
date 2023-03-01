@@ -3,9 +3,15 @@
     <form id="buscador">
       <label> Buscar Nota: </label>
       <input type="text" id="titulo-a-buscar" />
-      <input type="submit" value="Sumar" id="sumar-button" />
+      <input type="submit" value="Buscar"/>
     </form>
-    <div id="titulo"></div>
+    <form id="crear-notas">
+        <label>Titulo:</label>
+        <input type="text" id="titulo-nota"><br>
+        <label>Texto:</label>
+        <input type="text" id="texto-nota"><br>
+        <input type="submit" value="Crear Nota">
+    </form>
     <script type="module" src="./src/presenter-notas.js"></script>
   </body>
 </html>
