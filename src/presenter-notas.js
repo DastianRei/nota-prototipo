@@ -1,4 +1,4 @@
-import { BuscarNota, CrearNota, EliminarNota } from "./CrearNota";
+import { BuscarNota, CrearNota, EliminarNota, MostrarNota } from "./CrearNota";
 
 const tituloABuscar = document.querySelector("#titulo-a-buscar");
 const divTituloABuscar = document.querySelector("#nota-buscada");
@@ -10,55 +10,28 @@ let notas = [];
 window.onload = function () {
   window.notas = [];
 };
+
 formBuscador.addEventListener("submit", (event) => {
   event.preventDefault();
   let nota = BuscarNota(tituloABuscar.value, notas);
-  divTituloABuscar.innerHTML =
-    "<p> Titulo: " +
-    nota.titulo +
-    "</p>" +
-    "<p> Texto: " +
-    nota.texto +
-    "</p>" +
-    "<p> Fecha: " +
-    nota.fecha.getDay() +
-    "/" +
-    nota.fecha.getMonth() +
-    "/" +
-    nota.fecha.getFullYear() +
-    "</p>" +
-    "<br>";
+  divTituloABuscar.innerHTML = MostrarNota(nota);
 });
 formEliminar.addEventListener("submit", (event) => {
   event.preventDefault();
   EliminarNota(tituloABuscar.value, notas);
-  console.log(notas.length)
+  console.log(notas.length);
 });
-
-formCrear.addEventListener("submit", (event) => {
+function AgregarElemento() {
   const tituloNota = document.querySelector("#tituloNota");
   const textoNota = document.querySelector("#texto-nota");
   const nota = CrearNota(tituloNota.value, textoNota.value);
-  event.preventDefault();
   notas.push(nota);
+}
+formCrear.addEventListener("submit", (event) => {
+  event.preventDefault();
+  AgregarElemento()
   var foo = notas.map(function (nota) {
-    return (
-      "<p> Titulo: " +
-      nota.titulo +
-      "</p>" +
-      "<p> Texto: " +
-      nota.texto +
-      "</p>" +
-      "<p> Fecha: " +
-      nota.fecha.getDay() +
-      "/" +
-      nota.fecha.getMonth() +
-      "/" +
-      nota.fecha.getFullYear() +
-      "</p>" +
-      "<br>"
-    );
+    return MostrarNota(nota);
   });
-  console.log(notas.length);
   divTituloNota.innerHTML = foo;
 });

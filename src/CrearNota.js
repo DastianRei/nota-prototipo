@@ -21,8 +21,26 @@ function EliminarNota(titulo, notas) {
   for (var i = 0; i < notas.length; i++) {
     var tituloABuscar = notas[i].titulo;
     if (titulo == tituloABuscar) {
-        delete(notas[i]);
+      delete notas[i];
     }
   }
 }
-export { CrearNota, GuardarNotas, BuscarNota, EliminarNota};
+function MostrarNota(nota) {
+  return (
+    "<p> Titulo: " +
+    nota.titulo +
+    "</p>" +
+    "<p> Texto: " +
+    nota.texto +
+    "</p>" +
+    "<p> Fecha: " +
+    nota.fecha.getDay() +
+    "/" +
+    nota.fecha.getMonth() +
+    "/" +
+    nota.fecha.getFullYear() +
+    "</p>" +
+    "<br>"
+  );
+}
+export { CrearNota, GuardarNotas, BuscarNota, EliminarNota, MostrarNota };
