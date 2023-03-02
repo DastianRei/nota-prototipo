@@ -17,4 +17,12 @@ function GuardarNotas(nota) {
   let notas = [];
   notas.push(nota);
 }
-export { CrearNota, GuardarNotas,BuscarNota };
+function EliminarNota(titulo, notas) {
+  for (var i = 0; i < notas.length; i++) {
+    var tituloABuscar = notas[i].titulo;
+    if (titulo == tituloABuscar) {
+        delete(notas[i]);
+    }
+  }
+}
+export { CrearNota, GuardarNotas, BuscarNota, EliminarNota};
