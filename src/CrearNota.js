@@ -5,8 +5,16 @@ function CrearNota(titulo, texto) {
     fecha: new Date(),
   };
 }
-function GuardarNotas(nota){
-    let notas = [];
-    notas.push(nota);
+function BuscarNota(titulo, notas) {
+  for (var i = 0; i < notas.length; i++) {
+    var tituloABuscar = notas[i].titulo;
+    if (titulo == tituloABuscar) {
+      return notas[i];
+    }
+  }
 }
-export {CrearNota,GuardarNotas};
+function GuardarNotas(nota) {
+  let notas = [];
+  notas.push(nota);
+}
+export { CrearNota, GuardarNotas,BuscarNota };
