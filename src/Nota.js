@@ -1,5 +1,5 @@
 class Nota {
-  constructor(titulo, texto, fecha) {
+  constructor(titulo, texto) {
     this.titulo = titulo;
     this.texto = texto;
     this.fecha = new Date();
